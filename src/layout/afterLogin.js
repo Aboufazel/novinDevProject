@@ -1,4 +1,4 @@
-import {Menu, MenuHandler, MenuItem, MenuList} from "@material-tailwind/react";
+import {Menu, MenuHandler, MenuItem, MenuList, Spinner} from "@material-tailwind/react";
 import {useState} from "react";
 import {UserDetail} from "../api/appApi";
 import {useQuery} from "@tanstack/react-query";
@@ -51,10 +51,7 @@ const AfterLogin = () => {
 
     if (isLoading) {
         return (
-            <div className={"hidden xl:flex xl:flex-col items-start gap-sp-24 w-full"}>
-                <div className={"w-[300px] h-[80px] bg-primary-100 animate-pulse rounded-[12px]"}></div>
-
-            </div>
+            <Spinner className="h-10 w-10" />
         )
     }
 

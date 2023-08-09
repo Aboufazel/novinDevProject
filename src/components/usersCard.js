@@ -1,6 +1,7 @@
 import {UserLists} from "../api/appApi";
 import {useQuery} from "@tanstack/react-query";
 import {useId} from "react";
+import {Spinner} from "@material-tailwind/react";
 
 
 const UsersCard = () => {
@@ -21,10 +22,7 @@ const UsersCard = () => {
 
     if (isLoading) {
         return (
-            <div className={"hidden xl:flex xl:flex-col items-start gap-sp-24 w-full"}>
-                <div className={"w-[300px] h-[80px] bg-primary-100 animate-pulse rounded-[12px]"}></div>
-
-            </div>
+            <Spinner className="h-10 w-10" />
         )
     }
 
@@ -38,7 +36,7 @@ const UsersCard = () => {
             {
                 data.data.map(item => (
                     <div key={uniqId + item.id} className={"flex flex-row items-center bg-gray-300 w-full my-3 h-[120px] rounded-[15px]"}>
-                        <img src={item.avatar} alt={"user image"} className={"w-1/3 shadow-sm shadow-amber-400  rounded-[15px]"}/>
+                        <img src={item.avatar} alt={"user image"} className={"w-[90px] shadow-sm shadow-amber-400  rounded-[15px]"}/>
                         <div className={"flex flex-col w-2/3"}>
                             <p>{item.first_name + item.last_name}</p>
                             <p>{item.email}</p>
