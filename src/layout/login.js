@@ -2,7 +2,7 @@ import {Button, Input} from "@material-tailwind/react";
 import useStorage from "../hooks/useStorage";
 import {useState} from "react";
 import {LoginApi} from "../api/appApi";
-import {Navigate, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 const Login = () => {
