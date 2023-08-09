@@ -23,7 +23,7 @@ const Root = () => {
                         )
                     },
                     {
-                        path: "after",
+                        path: "/after",
                         element: (
                             <AuthProvider>
                                 <AfterLogin/>
