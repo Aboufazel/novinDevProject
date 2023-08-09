@@ -5,6 +5,7 @@ import {useQuery} from "@tanstack/react-query";
 import Storage from "../storage/storage";
 import {useNavigate} from "react-router-dom";
 import useStorage from "../hooks/useStorage";
+import UsersCard from "../components/usersCard";
 
 
 const AfterLogin = () => {
@@ -78,7 +79,7 @@ const AfterLogin = () => {
                     </MenuHandler>
                     <MenuList className={"font-[Estedad] font-medium"}>
                         <MenuItem onClick={manageLogout}>
-                            خروج از حساب
+                            Log out
                         </MenuItem>
                     </MenuList>
                 </Menu>
@@ -90,6 +91,8 @@ const AfterLogin = () => {
                     isLoading ? "...loading" : <p className={"text-blue-800"}>{info.email}</p>
                 }
             </div>
+
+            <UsersCard/>
         </div>
     )
 }

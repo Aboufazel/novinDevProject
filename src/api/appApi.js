@@ -17,3 +17,9 @@ export const UserDetail = (id) =>{
 
     return BaseUrl.get(`/api/users/${id}`)
 }
+
+
+
+export const UserLists = () =>{
+    return BaseUrl.get('/api/users?page=2')
+}
