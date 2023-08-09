@@ -1,5 +1,4 @@
 import {Menu, MenuHandler, MenuItem, MenuList} from "@material-tailwind/react";
-import UserIcon from "../assets/svg/userIcon";
 import {useState} from "react";
 import {UserDetail} from "../api/appApi";
 import {useQuery} from "@tanstack/react-query";
