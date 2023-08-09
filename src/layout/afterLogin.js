@@ -10,14 +10,17 @@ import useStorage from "../hooks/useStorage";
 
 const AfterLogin = () => {
 
-    const [info , setInfo] = useState({first_name:"" , last_name:"" , icon:""});
+    const [info , setInfo] = useState({first_name:"" , last_name:"" , icon:"" , email:""});
 
     const storage = Storage()
 
     async function fetchInfo() {
         const {data} = await UserDetail(storage.userId);
 
-        setInfo({first_name: data.data.first_name , last_name: data.data.last_name , icon: data.data.avatar})
+        setInfo({first_name: data.data.first_name ,
+            last_name: data.data.last_name ,
+            email: data.data.email,
+            icon: data.data.avatar})
 
         return data;
 
@@ -67,7 +70,7 @@ const AfterLogin = () => {
 
     return(
         <div className={"flex flex-col w-full"}>
-            <div className={"flex flex-row items-center px-3 gap-3 border-amber-900 border-b pb-3 w-full"}>
+            <div className={"flex flex-row items-center px-3 gap-3 border-black border-b pb-3 w-full"}>
                 <Menu>
                     <MenuHandler>
                         <button className={"flex flex-row items-center justify-center w-[45px] h-[45px]"}>
@@ -75,9 +78,6 @@ const AfterLogin = () => {
                         </button>
                     </MenuHandler>
                     <MenuList className={"font-[Estedad] font-medium"}>
-                        <MenuItem>
-                            مشاهده پروفایل
-                        </MenuItem>
                         <MenuItem onClick={manageLogout}>
                             خروج از حساب
                         </MenuItem>
@@ -85,6 +85,10 @@ const AfterLogin = () => {
                 </Menu>
                 {
                     isLoading ? "...loading" : <p>{info.first_name + info.last_name}</p>
+                }
+
+                {
+                    isLoading ? "...loading" : <p className={"text-blue-800"}>{info.email}</p>
                 }
             </div>
         </div>
