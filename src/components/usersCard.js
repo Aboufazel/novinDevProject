@@ -33,11 +33,6 @@ const UsersCard = () => {
         return 'An error has occurred: ' + error.message
     }
 
-
-
-
-    console.log(data)
-
     return(
         <div className={"flex flex-col w-full max-h-[500px] overflow-y-scroll"}>
             {

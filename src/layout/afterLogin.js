@@ -64,10 +64,6 @@ const AfterLogin = () => {
     }
 
 
-
-    console.log(info , data , "info , data")
-
-
     return(
         <div className={"flex flex-col w-full"}>
             <div className={"flex flex-row items-center px-3 gap-3 border-black border-b pb-3 w-full"}>
