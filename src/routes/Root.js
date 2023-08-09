@@ -3,6 +3,7 @@ import IndexLayout from "../layout/indexLayout";
 import Login from "../layout/login";
 import AfterLogin from "../layout/afterLogin";
 import BeforLogin from "../layout/beforLogin";
+import AuthProvider from "../storage/authProvider";
 
 
 const Root = () => {
@@ -24,7 +25,9 @@ const Root = () => {
                     {
                         path: "after",
                         element: (
-                            <AfterLogin/>
+                            <AuthProvider>
+                                <AfterLogin/>
+                            </AuthProvider>
                         )
                     }
                 ]
