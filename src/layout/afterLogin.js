@@ -1,5 +1,4 @@
 import {Menu, MenuHandler, MenuItem, MenuList, Spinner} from "@material-tailwind/react";
-import {useState} from "react";
 import {UserDetail} from "../api/appApi";
 import {useQuery} from "@tanstack/react-query";
 import Storage from "../storage/storage";
@@ -10,17 +9,10 @@ import UsersCard from "../components/usersCard";
 
 const AfterLogin = () => {
 
-    const [info , setInfo] = useState({first_name:"" , last_name:"" , icon:"" , email:""});
-
     const storage = Storage()
 
     async function fetchInfo() {
         const {data} = await UserDetail(storage.userId);
-
-        setInfo({first_name: data.data.first_name ,
-            last_name: data.data.last_name ,
-            email: data.data.email,
-            icon: data.data.avatar})
 
         return data;
 
@@ -35,7 +27,6 @@ const AfterLogin = () => {
 
     const navigate = useNavigate();
     const [tokenInfo, setTokenInfo] = useStorage("auth", {
-        refreshToken: "",
         accessToken: "",
     });
 
@@ -67,7 +58,7 @@ const AfterLogin = () => {
                 <Menu>
                     <MenuHandler>
                         <button className={"flex flex-row items-center justify-center w-[45px] h-[45px]"}>
-                            <img src={info.icon} alt={info.first_name} className={" rounded-full"}/>
+                            <img src={data.data.avatar} alt={data.data.first_name} className={" rounded-full"}/>
                         </button>
                     </MenuHandler>
                     <MenuList className={"font-[Estedad] font-medium"}>
@@ -77,11 +68,11 @@ const AfterLogin = () => {
                     </MenuList>
                 </Menu>
                 {
-                    isLoading ? "...loading" : <p>{info.first_name + info.last_name}</p>
+                    isLoading ? "...loading" : <p>{data.data.first_name + data.data.last_name}</p>
                 }
 
                 {
-                    isLoading ? "...loading" : <p className={"text-blue-800"}>{info.email}</p>
+                    isLoading ? "...loading" : <p className={"text-blue-800"}>{data.data.email}</p>
                 }
             </div>
 
