@@ -13,7 +13,6 @@ const Login = () => {
     const [authInfo, setAuthInfo] = useStorage("auth", {
         userId: "",
         accessToken: "",
-        kind: "1"
     })
     const [value, setValue] = useState({
         email: "",
@@ -40,9 +39,11 @@ const Login = () => {
     return(
         <form onSubmit={manageSubmit} className={"flex flex-col h-full justify-start mt-5 gap-6"}>
             <Input label={"Username"}
+                   required={true}
                    onChange={(e) => setValue({...value, email: e.target.value})}
                    id={"username"} name={"username"} type={"text"}/>
             <Input label={"Password"}
+                   required={true}
                    onChange={(e) => setValue({...value,password: e.target.value})}
                    id={"password"} name={"password"} type={"password"}/>
 
